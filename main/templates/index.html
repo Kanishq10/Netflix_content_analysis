@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Netflix content analysis</title>
+    <style>
+        body {
+            background-image: url('/static/images/images.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content horizontally */
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            text-transform: capitalize;
+        }
+
+        form {
+            background-color: rgba(255, 200, 200, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(13, 5, 5, 0.2);
+            max-width: 600px; /* Set maximum width for the form */
+            width: 100%; /* Take full available width */
+        }
+
+        label {
+            display: inline-block; /* Display labels in a line */
+            text-align: left; /* Align text to the left */
+            margin-bottom: 5px;
+            width: 45%; /* Set label width */
+        }
+
+        input[type="number"] {
+            width: 45%; /* Set input width */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 10px; /* Add some space between label and input */
+        }
+
+        input[type="submit"] {
+            background-color: #00ff91;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%; /* Make submit button full width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #88baf0;
+        }
+    </style>
+  </head>
+  <body>
+      <h1>Netflix Analysis</h1>
+      <form action="/predict" method="post">
+          <label for="title">Title</label>
+          <input
+          type="number"
+          id="title"
+          name="title"
+          required
+          /><br /><br />
+          
+          <label for="director">Director</label>
+          <input type="number" id="director" name="director" required /><br /><br />
+      <label for="country">Country</label>
+      <input
+        type="number"
+        id="country"
+        name="country"
+        required
+      /><br /><br />
+
+      <label for="rating">Rating</label>
+      <input
+        type="number"
+        id="rating"
+        name="rating"
+        required
+      /><br /><br />
+      
+      <label for="duration">Duration</label>
+      <input
+        type="number"
+        id="duration"
+        name="duration"
+        required
+      /><br /><br />
+
+      <label for="listed_in">Listed_in</label>
+      <input
+        type="number"
+        id="listed_in"
+        name="listed_in"
+        required
+      /><br /><br />
+
+      <input type="submit" value="Predict" />
+
+      <h2>{{ fin_result }}</h2>
+    </form>
+  </body>
+</html>
